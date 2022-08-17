@@ -1,4 +1,4 @@
-# quad_manifold
+# Data-driven quadratic solution-manifolds
 
 This repository contains the source code for the numerical models from Section 2 of the preprint *Operator inference for non-intrusive model reduction with quadratic manifolds* ([arXiv:2205.02304](https://doi.org/10.48550/arXiv.2205.02304)) by Rudy Geelen, Stephen Wright and Karen Willcox.
 
