@@ -13,7 +13,7 @@ Our starting point is the quadratic approximation
 $$ \mathbf{s}\_j \approx \mathbf{s}_\text{ref} + \mathbf{V} \widehat{\mathbf{s}}_j + \overline{\mathbf{V}}(\widehat{\mathbf{s}}_j \otimes \widehat{\mathbf{s}}_j),
 $$
 
-where $\mathbf{s}_j$ is the $j$-th high-dimensional state, $\widehat{\mathbf{s}}_j$ denotes its reduced state representation, $(\mathbf{V},\overline{\mathbf{V}})$ are the basis matrices representing the linear and quadratic components of the solution-manifold, and $\otimes$ denotes the Kronecker product. In the following it is assumed that $\mathbf{V}$ and $\widehat{\mathbf{s}}_j$ are computed using the well-known proper orthogonal decomposition (POD), and the operator $\overline{\mathbf{V}}$ is computed from the misfit of the linear dimensionality reduction with basis $\mathbf{V}$ as follows:
+where $\mathbf{s}_j$ is the $j$-th high-dimensional state, $\widehat{\mathbf{s}}_j$ denotes its reduced state representation, $\mathbf{s}\_\text{ref}$ is a given reference state chosen in a problem-specific manner, $(\mathbf{V},\overline{\mathbf{V}})$ are the basis matrices representing the linear and quadratic components of the solution-manifold, and $\otimes$ denotes the Kronecker product. In the following it is assumed that $\mathbf{V}$ and $\widehat{\mathbf{s}}_j$ are computed using the well-known proper orthogonal decomposition (POD), and the operator $\overline{\mathbf{V}}$ is computed from the misfit of the linear dimensionality reduction with basis $\mathbf{V}$ as follows:
 
 $$ 
 \overline{\mathbf{V}} = \underset{\overline{\mathbf{V}}}{\operatorname{argmin}} \sum_{j=1}^k \left\| \left\| \mathbf{s}\_j - \mathbf{s}_\text{ref} - \mathbf{V} \widehat{\mathbf{s}}_j - \overline{\mathbf{V}} ( \widehat{\mathbf{s}}_j  \otimes \widehat{\mathbf{s}}_j ) \right\| \right\|_2^2 \in \mathbb{R}^{n \times r^2}
@@ -32,7 +32,7 @@ The following set of codes can be used in the numerical treatment of this approx
 
 - [`columns.m`](./columns.m) is an outer loop script that encloses the column selection problem. The column selection algorithm is generally speaking not applied for a single value of the regularization parameter $\lambda$ but rather a range of distinct values (in decreasing order). Note that the number of columns selected tends to increase as lambda is decreased. 
 
-- [`column_selection.m`](./column_selection.m) considers a basic proximal-gradient algorithm for solving the sum of $\ell_2$ regularized problem, which is essentially the SpaRSA algorithm described by Wright and co-workers [here](https://doi.org/10.1109/TSP.2009.2016892). The sum of $\ell_2$ regularizer induces sparsity in a similar way to the $\ell_1$ norm of a vector, except that instead of producing element-wise sparsity, it induces sparsity by groups.
+- [`column_selection.m`](./column_selection.m) considers a basic proximal-gradient algorithm for solving the "sum of $\ell_2$" regularized problem, which is essentially the SpaRSA algorithm described by Wright and co-workers [here](https://doi.org/10.1109/TSP.2009.2016892). The "sum of $\ell_2$" regularizer induces sparsity in a similar way to the $\ell_1$ norm of a vector, except that instead of producing element-wise sparsity, it induces sparsity by groups.
 
 ## Citation
 
